@@ -1,0 +1,45 @@
+.app-logo {
+  height: 49px;
+  width: 34px;
+  padding: 1rem;
+  margin-left: 5rem;
+}
+.app-logo:hover{
+  transform: scale(0.9);
+}
+.container{
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 15px 40px -20px rgba(40, 44, 63, .15);
+}
+.navbar{
+  margin-right: 5rem;
+}
+.navbar-list{
+  display: flex;
+  list-style-type: none;
+}
+.nav-item{
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 1rem;
+  padding: 0.25rem;
+}
+.nav-item:hover{
+  color: #e57a10;
+  cursor: pointer;
+}
+.nav-item svg{
+  margin-right: 0.5rem;
+  margin-top: 0.25rem;
+}
+.nav-item span {
+  margin-top: 0.2rem;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Raleway", sans-serif;
+}
+.nav-item img{
+  margin-right: 0.5rem;
+  margin-top: 0.25rem;
+}
