@@ -43,3 +43,42 @@
   margin-right: 0.5rem;
   margin-top: 0.25rem;
 }
+.details-container{
+  margin-top: -4px;
+}
+.res-card{
+  font-family: "Roboto", sans-serif;
+  width: 240px;
+  height: 400px;
+  padding: 5px;
+}
+.res-card:hover{
+  border: 1px solid grey;
+  cursor: pointer;
+  transform: scale(0.9);
+}
+.restro-logo{
+  height: 180px;
+  width: 100%;
+}
+.res-params{
+  display: grid;
+  font-weight:bold;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: start;
+  gap: 5px;
+  margin-top: 2px;
+}
+.res-params svg{
+  margin-top: -2px;
+}
+.restaurant-name{
+  font-size: 18px;
+  font-weight: bold;
+}
+.restaurant-details{
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 5px;
+}
