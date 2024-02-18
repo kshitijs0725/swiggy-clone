@@ -52,9 +52,7 @@
 .card-container{
   box-sizing: border-box;
   overflow: hidden;
-  margin-top: 2rem;
-  margin-right: 1rem;
-  margin-left: 1rem;
+  margin: 2rem 3rem 0rem 3rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
