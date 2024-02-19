@@ -4,6 +4,9 @@
   padding: 1rem;
   margin-left: 5rem;
 }
+#offers{
+  margin-bottom: 3px;
+}
 .app-logo:hover{
   transform: scale(0.9);
 }
@@ -36,10 +39,62 @@
 .nav-item span {
   margin-top: 0.2rem;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   font-family: "Raleway", sans-serif;
+}
+.nav-item span sup{
+  color: orange;
 }
 .nav-item img{
   margin-right: 0.5rem;
   margin-top: 0.25rem;
+}
+.card-container{
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 2rem 3rem 0rem 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.res-card{
+  font-family: "Roboto", sans-serif;
+  width: 240px;
+  padding: 5px;
+  margin: 0rem 1rem;
+}
+.res-card:hover{
+  cursor: pointer;
+  transform: scale(0.9);
+}
+.restro-logo{
+  height: 180px;
+  width: 100%;
+  border-radius: 10px;
+}
+.res-params{
+  display: grid;
+  font-weight:bold;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: start;
+  gap: 5px;
+  margin-top: 2px;
+}
+.res-params svg{
+  margin-top: -2px;
+}
+.res-params span{
+  font-weight: 500;
+  font-family: "Poppins";
+}
+.restaurant-name{
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Poppins";
+}
+.restaurant-details{
+  font-size: 16px;
+  font-weight: 200;
+  font-family: "Archivo";
 }
