@@ -39,7 +39,7 @@
 .nav-item span {
   margin-top: 0.2rem;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   font-family: "Raleway", sans-serif;
 }
 .nav-item span sup{
@@ -64,13 +64,13 @@
   margin: 0rem 1rem;
 }
 .res-card:hover{
-  border: 1px solid grey;
   cursor: pointer;
   transform: scale(0.9);
 }
 .restro-logo{
   height: 180px;
   width: 100%;
+  border-radius: 10px;
 }
 .res-params{
   display: grid;
@@ -84,11 +84,17 @@
 .res-params svg{
   margin-top: -2px;
 }
+.res-params span{
+  font-weight: 500;
+  font-family: "Poppins";
+}
 .restaurant-name{
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 500;
+  font-family: "Poppins";
 }
 .restaurant-details{
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 200;
+  font-family: "Archivo";
 }
