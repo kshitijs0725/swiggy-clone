@@ -52,10 +52,10 @@
 .card-container{
   box-sizing: border-box;
   overflow: hidden;
-  margin: 2rem 3rem 0rem 3rem;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .res-card{
   font-family: "Roboto", sans-serif;
