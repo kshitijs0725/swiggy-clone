@@ -1,5 +1,6 @@
 import ResCard from "./ResCard";
 import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [filteredRestros, setFilteredRestros] = useState([]);
@@ -15,6 +16,9 @@ const Body = () => {
     const jsonData = await response.json();
     setFilteredRestros(jsonData?.data?.cards[4]?.card?.card.gridElements?.infoWithStyle?.restaurants);
   };
+  if (filteredRestros.length === 0){
+    return <Shimmer />
+  }
 
 
   return (
