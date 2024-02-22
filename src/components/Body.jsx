@@ -3,11 +3,13 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
+  const [searchTxt, setSearchTxt] = useState("");
   const [filteredRestros, setFilteredRestros] = useState([]);
+  const [searchRestroList, setSearchRestroList] = useState([]);
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchData();
-  },[])
+  }, []);
 
   const fetchData = async () => {
     const response = await fetch(
@@ -15,11 +17,33 @@ const Body = () => {
     );
     const jsonData = await response.json();
     setFilteredRestros(jsonData?.data?.cards[4]?.card?.card.gridElements?.infoWithStyle?.restaurants);
+    setSearchRestroList(jsonData?.data?.cards[4]?.card?.card.gridElements?.infoWithStyle?.restaurants);
   };
 
-
-  return filteredRestros.length === 0 ? <Shimmer /> : (
+  return filteredRestros.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
+      <div className="search-container">
+        <input
+          type="text"
+          className="search-box"
+          value={searchTxt}
+          onChange={(e) => {
+            setSearchTxt(e.target.value);
+          }}
+        />
+        <button
+          onClick={() => {
+            const searchedRestro = filteredRestros.filter((res) =>
+              res.info.name.toLowerCase().includes(searchTxt.toLowerCase())
+            );
+            setSearchRestroList(searchedRestro);
+          }}
+        >
+          Search
+        </button>
+      </div>
       <div className="filterBtn">
         <button
           className="topRatedBtn"
@@ -34,7 +58,7 @@ const Body = () => {
         </button>
       </div>
       <div className="card-container">
-        {filteredRestros.map((restaurant) => (
+        {searchRestroList.map((restaurant) => (
           <ResCard key={restaurant.info.id} {...restaurant.info} />
         ))}
       </div>

@@ -3,7 +3,7 @@ import cartIcon from '../assets/images/cart-icon.png'
 import { useState } from 'react'
 
 const Header = () => {
-  const [loginBtn, setLoginBtn] = useState("Sign In")
+  const [loginBtn, setLoginBtn] = useState("Sign In");
     return (
       <header>
         <div className="container">
