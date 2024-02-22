@@ -16,12 +16,9 @@ const Body = () => {
     const jsonData = await response.json();
     setFilteredRestros(jsonData?.data?.cards[4]?.card?.card.gridElements?.infoWithStyle?.restaurants);
   };
-  if (filteredRestros.length === 0){
-    return <Shimmer />
-  }
 
 
-  return (
+  return filteredRestros.length === 0 ? <Shimmer /> : (
     <div className="body">
       <div className="filterBtn">
         <button
