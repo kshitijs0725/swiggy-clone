@@ -52,10 +52,10 @@
 .card-container{
   box-sizing: border-box;
   overflow: hidden;
-  margin: 2rem 3rem 0rem 3rem;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .res-card{
   font-family: "Roboto", sans-serif;
@@ -98,3 +98,38 @@
   font-weight: 200;
   font-family: "Archivo";
 }
+.shimmer-container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.shimmer-card {
+  margin: 20px;
+  width: 240px;
+  height: 280px;
+  background-color: #dadada;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  animation: shimmer 0.2s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+  }
+  .shimmer-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(-45deg, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 75%);
+    background-size: 200% 200%;
+    animation: shimmer 0.5s infinite linear;
+  }
