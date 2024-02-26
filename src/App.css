@@ -113,6 +113,18 @@
   overflow: hidden;
   animation: shimmer 0.2s infinite linear;
 }
+.menu-container{
+  max-width: 800px;
+  max-height: 800px;
+  margin: 20px auto 0;
+  font-family: "Poppins", sans-serif;
+}
+.margin{
+  border-bottom: 0.5px solid #d3d3d3;
+  height: 0.5px;
+  margin: 24px auto;
+  width: calc(100% - 32px);
+}
 
 @keyframes shimmer {
   0% {

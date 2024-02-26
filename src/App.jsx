@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Body from './components/Body';
 import AboutPage from './components/About';
 import ContactPage from './components/Contact';
+import ResMenu from './components/ResMenu';
 
 const appRouter = createBrowserRouter([
   {
@@ -24,7 +25,12 @@ const appRouter = createBrowserRouter([
     {
       path: '/contact',
       element: <ContactPage />,
-    }]
+    },
+    {
+      path: "/restaurants/:resId",
+      element: <ResMenu />
+    }
+]
   }
 ]);
 
