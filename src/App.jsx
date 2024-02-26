@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Outlet} from 'react-router-dom';
 import './App.css';
 import './index.css';
 import Header from './components/Header';
@@ -12,22 +12,27 @@ const appRouter = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-  },
-  {
-    path: '/about',
-    element: <AboutPage />,
-  },
-  {
-    path: '/contact',
-    element: <ContactPage />,
-  },
+    children: [  
+    {
+      path: "/",
+      element: <Body />
+    },
+    {
+      path: '/about',
+      element: <AboutPage />,
+    },
+    {
+      path: '/contact',
+      element: <ContactPage />,
+    }]
+  }
 ]);
 
 function App() {
   return (
     <>
       <Header />
-      <Body />
+      <Outlet />
     </>
   );
 }
