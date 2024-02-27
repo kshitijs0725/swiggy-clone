@@ -1,6 +1,7 @@
 import ResCard from "./ResCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { NavLink } from "react-router-dom";
 
 const Body = () => {
   const [searchTxt, setSearchTxt] = useState("");
@@ -59,7 +60,8 @@ const Body = () => {
       </div>
       <div className="card-container">
         {searchRestroList.map((restaurant) => (
-          <ResCard key={restaurant.info.id} {...restaurant.info} />
+          <NavLink key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id}><ResCard 
+           {...restaurant.info} /></NavLink>
         ))}
       </div>
     </div>
