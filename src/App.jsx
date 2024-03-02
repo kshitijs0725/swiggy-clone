@@ -1,33 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Outlet} from 'react-router-dom';
 import './App.css';
 import './index.css';
 import Header from './components/Header';
 import Body from './components/Body';
 import AboutPage from './components/About';
 import ContactPage from './components/Contact';
+import ResMenu from './components/ResMenu';
 
 const appRouter = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-  },
-  {
-    path: '/about',
-    element: <AboutPage />,
-  },
-  {
-    path: '/contact',
-    element: <ContactPage />,
-  },
+    children: [  
+    {
+      path: "/",
+      element: <Body />
+    },
+    {
+      path: '/about',
+      element: <AboutPage />,
+    },
+    {
+      path: '/contact',
+      element: <ContactPage />,
+    },
+    {
+      path: "/restaurants/:resId",
+      element: <ResMenu />
+    }
+]
+  }
 ]);
 
 function App() {
   return (
     <>
       <Header />
-      <Body />
+      <Outlet />
     </>
   );
 }
