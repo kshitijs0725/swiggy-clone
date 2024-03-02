@@ -16,19 +16,16 @@ const ResMenu = () => {
     );
     const jsonData = await data.json();
     setResInfo(jsonData.data);
-    console.log(
-      resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
-        ?.card
-    );
+    console.log(resInfo);
   };
 
   if (resInfo === null) {
     return <div>Loading...</div>;
   }
 
-  const { name, cuisines, areaName, sla, costForTwoMessage, feeDetails } =resInfo?.cards[2]?.card?.card?.info;
-  const { itemCards } =resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
-  const { carousel } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+  const { name, cuisines, areaName, sla, costForTwoMessage, feeDetails } =resInfo?.cards[0]?.card?.card?.info;
+  const { itemCards } =resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+  const { carousel } = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
 
   return (
     <div className="menu-container">
