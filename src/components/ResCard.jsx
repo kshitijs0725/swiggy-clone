@@ -1,8 +1,8 @@
 import { RESTRO_IMAGES_URL } from '../assets/constants'
 
 const ResCard = (props) =>{
-    return(
-    <div className='res-card p-5 mx-4 w-[320px] cursor-pointer hover:scale-90'>
+  return(
+    <div className='res-card text-[#3d405b] p-5 mx-4 w-[320px] cursor-pointer hover:scale-90'>
         <img src={RESTRO_IMAGES_URL + props.cloudinaryImageId} alt="restaurant-logo" className='restro-logo h-[200px] w-full rounded-lg '/>
       <div className='details-container'>
         <h3 className='restaurant-name text-lg font-medium'>{props.name}</h3>
@@ -21,7 +21,21 @@ const ResCard = (props) =>{
         </div>
       </div>
   </div>
-    )
-  }
+  )
+}
+
+export const DiscountInfo = (ResCard) => {
+  return (props) => {
+    return (
+      <div>
+        <span className='absolute mt-48 ml-20 rounded-md items-center bg-white text-lg font-extrabold'>
+          {props.aggregatedDiscountInfoV3.header} {props.aggregatedDiscountInfoV3.subHeader}
+        </span>
+        <ResCard {...props}/>
+      </div>
+    );
+  };
+};
+
 
 export default ResCard;

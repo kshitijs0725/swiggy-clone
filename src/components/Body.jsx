@@ -1,4 +1,4 @@
-import ResCard from "./ResCard";
+import ResCard, {DiscountInfo} from "./ResCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { NavLink } from "react-router-dom";
@@ -8,6 +8,7 @@ const Body = () => {
   const [searchTxt, setSearchTxt] = useState("");
   const [filteredRestros, setFilteredRestros] = useState([]);
   const [searchRestroList, setSearchRestroList] = useState([]);
+  const ResDiscountInfo = DiscountInfo(ResCard);
 
   useEffect(() => {
     fetchData();
@@ -45,7 +46,7 @@ const Body = () => {
             }}
           />
           <button
-            className="search-btn bg-green-200 px-4 py-1.5 m-4 rounded-lg"
+            className="search-btn bg-[#e07a5f] px-4 py-1.5 m-4 rounded-lg"
             onClick={() => {
               const searchedRestro = filteredRestros.filter((res) =>
                 res.info.name.toLowerCase().includes(searchTxt.toLowerCase())
@@ -57,7 +58,7 @@ const Body = () => {
           </button>
         </div>
       <div className="filter m-4 p-4">
-        <div className="filterBtn bg-gray-300 px-4 py-1 m-4 rounded-lg">
+        <div className="filterBtn bg-[#81b29a] px-4 py-1 m-4 rounded-lg">
           <button
             className="topRatedBtn"
             onClick={() => {
@@ -79,7 +80,7 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            <ResCard {...restaurant.info} />
+            {(restaurant.info.aggregatedDiscountInfoV3) ? <ResDiscountInfo {...restaurant.info}/> : <ResCard {...restaurant.info} /> }
           </NavLink>
         ))}
       </div>
