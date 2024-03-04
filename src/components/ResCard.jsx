@@ -28,7 +28,7 @@ export const DiscountInfo = (ResCard) => {
   return (props) => {
     return (
       <div>
-        <span className='absolute mt-48 ml-20 rounded-md items-center bg-white text-lg font-extrabold'>
+        <span className='absolute mt-48 ml-16 px-4 rounded-md items-center bg-white text-lg font-extrabold'>
           {props.aggregatedDiscountInfoV3.header} {props.aggregatedDiscountInfoV3.subHeader}
         </span>
         <ResCard {...props}/>

@@ -8,7 +8,7 @@ const Header = () => {
     return (
       <header>
         <div className="flex justify-between container">  
-          <div className='logo-container ml-48 mt-4 p-4'>
+          <div className='logo-container ml-48 p-4'>
           <Link to="/"> <img src={Logo} alt="swiggy-logo" className="app-logo w-9 h-12 hover:scale-90" /></Link>
           </div>
   
