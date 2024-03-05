@@ -42,12 +42,14 @@ const Header = () => {
                     loginBtn === "Sign In" ? setLoginBtn("Sign Out") : setLoginBtn("Sign In")
                   }}>{loginBtn}</span>
               </li>
+              <Link to= "/cart">
               <li className="nav-item flex p-1 my-4 mx-8 items-center hover:text-orange-400 cursor-pointer">
                   <>
                     <img src={cartIcon} className="mr-2 mt-1" alt="cart-icon" />
                   </>
                   <span className='mt-1 text-lg font-normal'>Cart</span>
               </li>
+              </Link>
             </ul>
           </div>
         

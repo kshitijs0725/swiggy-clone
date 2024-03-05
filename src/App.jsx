@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider, Outlet} from 'react-router-dom';
 import './App.css';
 import './index.css';
@@ -8,6 +8,7 @@ import Body from './components/Body';
 import AboutPage from './components/About';
 import ContactPage from './components/Contact';
 import ResMenu from './components/ResMenu';
+import Cart from './components/Cart';
 
 const appRouter = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const appRouter = createBrowserRouter([
     {
       path: "/restaurants/:resId",
       element: <ResMenu />
+    },
+    {
+      path: "/cart",
+      element: <Cart />
     }
 ]
   }

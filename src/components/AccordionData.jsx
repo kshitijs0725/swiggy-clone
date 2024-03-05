@@ -2,8 +2,6 @@ import VegIcon from "../assets/images/veg-icon.png";
 import NonVegIcon from "../assets/images/nonVeg-icon.png";
 import { DISH_IMAGES_URL } from "../assets/constants";
 const AccordionData = (props) => {
-
-  console.log(props);
   return (
     <div>
       {props.items.map((item) => (
@@ -21,7 +19,6 @@ const AccordionData = (props) => {
             </div>
           )}
           {item.card.info.name}
-
           {item.card.info.defaultPrice ? (
             <p className="font-light text-xs mb-6">
               ₹{item.card.info.defaultPrice / 100}
@@ -35,7 +32,7 @@ const AccordionData = (props) => {
           <p className="font-extralight text-xs mb-4">
             {item.card.info.description}
           </p>
-          
+          <button className="px-4 py-1 mb-4 bg-black text-white rounded-md">Add</button>
         </div>
       ))}
     </div>

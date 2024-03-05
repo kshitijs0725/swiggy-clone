@@ -17,7 +17,6 @@ const ResMenu = () => {
     );
     const jsonData = await data.json();
     setResInfo(jsonData.data);
-    console.log(resInfo);
   };
 
   if (resInfo === null) {
@@ -29,14 +28,15 @@ const ResMenu = () => {
   const { carousel } = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
 
   const filteredItemTypes = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((item) => item?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
-  console.log(filteredItemTypes)
 
   return (
     <div className="menu-container text-center">
       <h1 className="res-name text-2xl my-6 font-bold">{name}</h1>
       <p className="cuisines-list font-medium text-lg">{cuisines.join(", ")} - {costForTwoMessage}</p>
       {filteredItemTypes.map((category) => (
-        <ResCategory data={category?.card?.card}/>
+        <ResCategory
+        key={category?.card?.card?.title}
+        data={category?.card?.card}/>
       ))}
     </div>
   );
