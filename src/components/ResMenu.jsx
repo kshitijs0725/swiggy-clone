@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { RESTRO_MENU_URL } from "../assets/constants";
+import ResCategory from "./ResCategory";
 
 const ResMenu = () => {
   const [resInfo, setResInfo] = useState(null);
@@ -16,7 +17,6 @@ const ResMenu = () => {
     );
     const jsonData = await data.json();
     setResInfo(jsonData.data);
-    console.log(resInfo);
   };
 
   if (resInfo === null) {
@@ -27,26 +27,17 @@ const ResMenu = () => {
   const { itemCards } =resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
   const { carousel } = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
 
+  const filteredItemTypes = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((item) => item?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
+
   return (
-    <div className="menu-container">
-      <h1 className="res-name">{name}</h1>
-      <p className="cuisines-list">{cuisines.join(", ")}</p>
-      <p className="area-name">{areaName}</p>
-      <p className="res-distance">{sla?.lastMileTravelString}</p>
-      <ul className="add-info">
-        <li>{costForTwoMessage}</li>
-      </ul>
-      <p>{feeDetails?.message}</p>
-      <div className="margin"></div>
-      <ul>
-        {itemCards
-          ? itemCards.map((item) => (
-              <li key={item.card.info.id}> {item.card.info.name} - Rs {(item.card.info.price || item.card.info.defaultPrice)/100} </li>
-            ))
-          : carousel.map((item) => (
-              <li key={item.dish.info.id}>{item.dish.info.name} - Rs {(item.dish.info.price || item.dish.info.defaultPrice)/100} </li>
-            ))}
-      </ul>
+    <div className="menu-container text-center">
+      <h1 className="res-name text-2xl my-6 font-bold">{name}</h1>
+      <p className="cuisines-list font-medium text-lg">{cuisines.join(", ")} - {costForTwoMessage}</p>
+      {filteredItemTypes.map((category) => (
+        <ResCategory
+        key={category?.card?.card?.title}
+        data={category?.card?.card}/>
+      ))}
     </div>
   );
 };
